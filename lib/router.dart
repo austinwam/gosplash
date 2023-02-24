@@ -14,9 +14,16 @@ class Approuter {
   static GoRouter initializeRouter([GoRouter? router]) {
     goRouter = router ??
         GoRouter(
+          debugLogDiagnostics: true,
           routes: <RouteBase>[
             GoRoute(
-              path: '/',
+              path: "/",
+              builder: (BuildContext context, GoRouterState state) {
+                return const Splashpage();
+              },
+            ),
+            GoRoute(
+              path: '/home',
               builder: (BuildContext context, GoRouterState state) {
                 return const Homepage();
               },

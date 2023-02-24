@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:gosplash/router.dart';
 
-class Splashpage extends StatelessWidget {
+class Splashpage extends StatefulWidget {
   const Splashpage({super.key});
+
+  @override
+  State<Splashpage> createState() => _SplashpageState();
+}
+
+class _SplashpageState extends State<Splashpage> {
+  Future<void> gotohome() async {
+    await Future.delayed(const Duration(seconds: 5));
+    Approuter.getRouter().go("/home");
+  }
+
+  @override
+  void initState() {
+    gotohome();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +42,10 @@ class Homepage extends StatelessWidget {
       ),
       body: Center(
         child: MaterialButton(
-            child: const Text("get to deTail"), onPressed: () {}),
+            child: const Text("get to deTail"),
+            onPressed: () {
+              context.go("/details");
+            }),
       ),
     );
   }
@@ -40,8 +61,11 @@ class Detailpage extends StatelessWidget {
         title: const Text("details page"),
       ),
       body: Center(
-        child:
-            MaterialButton(child: const Text("go to home"), onPressed: () {}),
+        child: MaterialButton(
+            child: const Text("go to home"),
+            onPressed: () {
+              context.go('/');
+            }),
       ),
     );
   }
