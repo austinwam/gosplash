@@ -1,7 +1,7 @@
-# gosplash
+# go_router provider splash
 
-A new Flutter project.
-
+adding a splash screens 
+check auth state
 ## Getting Started
 
 This project is a starting point for a Flutter application.
