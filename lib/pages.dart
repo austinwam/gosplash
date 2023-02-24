@@ -12,3 +12,37 @@ class Splashpage extends StatelessWidget {
     );
   }
 }
+
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Homepage"),
+      ),
+      body: Center(
+        child: MaterialButton(
+            child: const Text("get to deTail"), onPressed: () {}),
+      ),
+    );
+  }
+}
+
+class Detailpage extends StatelessWidget {
+  const Detailpage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("details page"),
+      ),
+      body: Center(
+        child:
+            MaterialButton(child: const Text("go to home"), onPressed: () {}),
+      ),
+    );
+  }
+}
