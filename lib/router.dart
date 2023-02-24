@@ -17,13 +17,13 @@ class Approuter {
           debugLogDiagnostics: true,
           routes: <RouteBase>[
             GoRoute(
-              path: "/",
+              path: '/splash',
               builder: (BuildContext context, GoRouterState state) {
                 return const Splashpage();
               },
             ),
             GoRoute(
-              path: '/home',
+              path: '/',
               builder: (BuildContext context, GoRouterState state) {
                 return const Homepage();
               },

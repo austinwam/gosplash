@@ -11,8 +11,8 @@ class Splashpage extends StatefulWidget {
 
 class _SplashpageState extends State<Splashpage> {
   Future<void> gotohome() async {
-    await Future.delayed(const Duration(seconds: 5));
-    Approuter.getRouter().go("/home");
+    await Future.delayed(const Duration(seconds: 2));
+    Approuter.getRouter().go("/");
   }
 
   @override
@@ -64,7 +64,7 @@ class Detailpage extends StatelessWidget {
         child: MaterialButton(
             child: const Text("go to home"),
             onPressed: () {
-              context.go('/');
+              context.go('/splash');
             }),
       ),
     );
