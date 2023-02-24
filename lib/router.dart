@@ -15,11 +15,18 @@ class Approuter {
     goRouter = router ??
         GoRouter(
           debugLogDiagnostics: true,
+          initialLocation: "/splash",
           routes: <RouteBase>[
             GoRoute(
               path: '/splash',
               builder: (BuildContext context, GoRouterState state) {
                 return const Splashpage();
+              },
+            ),
+            GoRoute(
+              path: '/login',
+              builder: (BuildContext context, GoRouterState state) {
+                return const Loginpage();
               },
             ),
             GoRoute(

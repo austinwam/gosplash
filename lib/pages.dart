@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gosplash/provider.dart';
 import 'package:gosplash/router.dart';
+import 'package:provider/provider.dart';
 
 class Splashpage extends StatefulWidget {
   const Splashpage({super.key});
@@ -11,8 +13,16 @@ class Splashpage extends StatefulWidget {
 
 class _SplashpageState extends State<Splashpage> {
   Future<void> gotohome() async {
-    await Future.delayed(const Duration(seconds: 2));
-    Approuter.getRouter().go("/");
+    var authstate = Provider.of<Appstate>(context, listen: false).authstate;
+    await Future.delayed(const Duration(seconds: 4));
+    // Approuter.getRouter().go("/login");
+    if (authstate == null) {
+      Approuter.getRouter().go("/login");
+    } else if (authstate == false) {
+      Approuter.getRouter().go("/login");
+    } else {
+      Approuter.getRouter().go("/");
+    }
   }
 
   @override
@@ -65,6 +75,26 @@ class Detailpage extends StatelessWidget {
             child: const Text("go to home"),
             onPressed: () {
               context.go('/splash');
+            }),
+      ),
+    );
+  }
+}
+
+class Loginpage extends StatelessWidget {
+  const Loginpage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Login page"),
+      ),
+      body: Center(
+        child: MaterialButton(
+            child: const Text("login page"),
+            onPressed: () {
+              Provider.of<Appstate>(context, listen: false).changeauth(context);
             }),
       ),
     );
